@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13) 
 
-set(PROJECT_NAME project)
-project(${PROJECT_NAME})
+set(test_project project)
+project(${test_project})
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE)
 if(NOT CMAKE_BUILD_TYPE)
