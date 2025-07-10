@@ -1,7 +1,7 @@
 #include "function.h"
 
 void mul(const double* A, const double* B, double* C, size_t sz) {
-    memset(C, 0, sz * sz * sizeof(double));
+    std::memset(C, 0, sz * sz * sizeof(double));
     for (size_t i = 0; i < sz; ++i) {
         for (size_t k = 0; k < sz; ++k) {
             for (size_t j = 0; j < sz; ++j) {
@@ -13,7 +13,7 @@ void mul(const double* A, const double* B, double* C, size_t sz) {
 
 void blockcachemul(const double* A, const double* B, double* C, size_t sz) {
     const size_t BLOCK_SIZE = 64; 
-    memset(C, 0, sz * sz * sizeof(double));
+    std::memset(C, 0, sz * sz * sizeof(double));
     for (size_t i1 = 0; i1 < sz; i1 += BLOCK_SIZE) {
         for (size_t k1 = 0; k1 < sz; k1 += BLOCK_SIZE) {
             for (size_t j1 = 0; j1 < sz; j1 += BLOCK_SIZE) {
@@ -53,7 +53,7 @@ void matrixchainmul(const double* A, const double* B, double* C, size_t sz) {
     double* bufA = new double[ProcPartElem];
     double* bufB = new double[ProcPartElem];
     double* bufC = new double[ProcPartElem]();  
-    double* B_transposed = nullptr; // âðåìåííàÿ òðàíñïîíèðîâàííàÿ ìàòðöèà
+    double* B_transposed = nullptr; // Ã¢Ã°Ã¥Ã¬Ã¥Ã­Ã­Ã Ã¿ Ã²Ã°Ã Ã­Ã±Ã¯Ã®Ã­Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã Ã¿ Ã¬Ã Ã²Ã°Ã¶Ã¨Ã 
     if (ProcRank == 0) {
         B_transposed = new double[dim * dim];
         for (int i = 0; i < dim; ++i) {
