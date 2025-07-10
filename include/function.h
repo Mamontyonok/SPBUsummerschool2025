@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <random>
+#include <cstring>
 #include <vector>
 #include "mpi.h"
 
